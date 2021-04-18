@@ -1,7 +1,21 @@
 {
+  "preset": "ts-jest",
+  "roots": [
+    "<rootDir>/src"
+  ],
   "transform": {
-    "^.+\\.(t|j)sx?$": "ts-jest"
+    "^.+\\.tsx?$": "ts-jest"
   },
-  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+  "testMatch": [
+    "**/__tests__/**/*.+(ts|tsx|js)",
+    "**/?(*.)+(spec|test).+(ts|tsx|js)"
+  ],
+  "moduleNameMapper": {
+    "\\.(css|scss)$": "identity-obj-proxy"
+  },
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx,tsx}",
+    "!<rootDir>/node_modules/",
+    "!<rootDir>/path/to/dir/"
+  ]
 }
